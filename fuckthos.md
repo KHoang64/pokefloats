@@ -1,2 +1,0 @@
-HOYL SHTI FUCK THIS WAY OF DEPLYING A GITPAGE
-just go to the vercel LMAOJ
