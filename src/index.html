@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Put Portfolio here (maybe?)</title>
+<head>
+    <title>Pokéfloats</title>
     <meta charset="utf-8" />
-  </head>
-  <body>
-    <main>
-      <header></header>
-    </main>
-  </body>
-  <audio controls>
-    <source src="smg2_greenstar.mp3" type="audio/mp3" />
-  </audio>
-  <script type="module" src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow-y: auto; /* Enable vertical scrolling */
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Background color for the page */
+            color: white; /* Default text color */
+        }
+
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .text-box {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(56, 56, 56, 0.459);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            max-width: 75vw;
+            width: 75vw;
+            margin-bottom: 50px; /* Add space between boxes */
+            height: 35vh;
+            overflow: hidden;
+        }
+
+        .text-box:hover {
+            overflow: auto;
+        }
+
+        .scrolling-text {
+            font-size: 16px;
+            color: black;
+            text-align: left;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+          /* Loading Bar */
+          #loading-bar {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 20s linear infinite;
+            position: relative;
+            top: 10px;
+            margin-top: 20px;
+        }
+
+        @keyframes rainbow {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div class="text-box">
+        <h1>Hello WURDLE</h1>
+        <div class="scrolling-text">
+        Sup.
+        Pokefloats is a stage that will probably  just be a floating collection of anything i find cool or funny probably
+        </div>
+    </div>
+    <div id="loading-bar"></div>
+    <div class="text-box">
+        <h1>Hello WURDLE</h1>
+        <a href="cat-redirect.html" class="link">Go to Peeking Cat Page</a>
+        <div class="scrolling-text">
+Heading 1   </div>
+    </div>
+    <div class="text-box">
+        <h1>Hello WURDLE</h1>
+        <div class="scrolling-text">
+Heading 2  </div>
+    </div>
+    <div class="text-box">
+        <h1>  </h1>
+        <div class="scrolling-text">
+Heading 3 </div>
+    </div>
+    <audio controls autoplay loop>
+        <source src="smg2_greenstar.mp3" type="audio/mp3" />
+    </audio>
+    <script type="module" src="script.js"></script>
+</body>
 </html>

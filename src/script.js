@@ -12,8 +12,7 @@ dracoLoader.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
 dracoLoader.setDecoderConfig({ type: "js" });
 loader.setDRACOLoader(dracoLoader);
 
-const container = document.createElement("div");
-document.body.appendChild(container);
+const container = document.getElementById("container");
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("#c8f0f9");
