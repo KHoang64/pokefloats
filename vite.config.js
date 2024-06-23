@@ -6,7 +6,8 @@ export default defineConfig({
     outDir: '../dist',
     rollupOptions: {
       input: {
-        main: 'src/index.html'
+        main: 'src/index.html',
+         catRedirect: 'src/cat-redirect.html'
       }
     }
   }
