@@ -1,6 +1,7 @@
 body, html {
-	margin: 0;
-	padding: 0;
-	overscroll-behavior: none;
-	overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: 100%;
 }

@@ -1,1 +1,156 @@
-<!doctype html><html lang="en"><head><title>Put Portfolio here (maybe?)</title><meta charset="utf-8"/><meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1"/><meta name="description" content="A threejs example using threejs boilerplate - by Anderson Mancini"/><meta property="og:url" content="https://threejs-andy-boilerplate.vercel.app/"/><meta property="og:type" content="website"/><meta property="og:title" content="EKTOGAMAT THREEJS BOILERPLATE"/><meta property="og:description" content=""/><meta property="og:image" content="assets/images/ebfbde7b36d389f0.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta property="twitter:domain" content="https://threejs-andy-boilerplate.vercel.app/"/><meta property="twitter:url" content="https://threejs-andy-boilerplate.vercel.app/"/><meta name="twitter:title" content="EKTOGAMAT THREEJS BOILERPLATE"/><meta name="twitter:description" content="A threejs example using threejs boilerplate - by Anderson Mancini"/><meta name="twitter:image" content="assets/images/ebfbde7b36d389f0.jpg"/><meta name="keywords" content="ThreeJS, HTML, CSS, JavaScript"/><meta name="author" content="Anderson Mancini"/><link rel="apple-touch-icon" sizes="180x180" href="assets/images/bfb41f27440a8111.png"/><link rel="icon" type="image/png" sizes="32x32" href="assets/images/8a8a67c63a70f840.png"/><link rel="icon" type="image/png" sizes="16x16" href="assets/images/7e2a725bc331d554.png"/><link rel="manifest" href="fe4b8e59f3b0328a.webmanifest"/><meta name="msapplication-TileColor" content="#ffffff"/><meta name="theme-color" content="#ffffff"/><script defer="defer" src="bundle.e56c7121ff71cffe.js"></script><link href="main.css" rel="stylesheet"></head><body><main><header></header></main></body><audio controls><source src="c41f4d0ee7796c83.mp3" type="audio/mp3"/></audio></html>
+Sure, here’s a snippet that ensures your page is scrollable:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokéfloats</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+            overflow-y: auto;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #bg, #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-box {
+            background-color: rgba(56, 56, 56, 0.459);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 75vw;
+            margin: 20px auto;
+            height: 35vh;
+            overflow: hidden;
+        }
+
+        .text-box:hover {
+            overflow: auto;
+        }
+
+        .scrolling-text {
+            font-size: 16px;
+            color: black;
+            text-align: left;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .link {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        #loading-bar {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 20s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes rainbow {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-o7UThZEX.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CfPiddox.css">
+</head>
+<body>
+    <canvas id="bg"></canvas>
+    <div id="container"></div>
+    <main>
+        <header>
+            <h1>Pokefloats</h1>
+            <p>🚀 yo</p>
+        </header>
+
+        <blockquote>
+            <p>The best way out is always through <br>-Robert Frost</p>
+        </blockquote>
+
+        <section>
+            <h2>📜 Manifesto</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        <section class="light">
+            <h2>👩🏽‍🚀 Projects</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        
+
+        <div class="text-box">
+            <h1>Hello WURDLE</h1>
+            <div class="scrolling-text">
+                Sup. Pokefloats is a stage that will probably just be a floating collection of anything I find cool or funny probably.
+            </div>
+        </div>
+        <div id="loading-bar"></div>
+        <div class="text-box">
+            <h1>Hello WURDLE</h1>
+            <a href="cat-redirect.html" class="link">Go to Peeking Cat Page</a>
+            <div class="scrolling-text">
+                Heading 1
+            </div>
+        </div>
+        <div class="text-box">
+            <h1>Hello WURDLE</h1>
+            <div class="scrolling-text">
+                Heading 2
+            </div>
+        </div>
+        <div class="text-box">
+            <h1></h1>
+            <div class="scrolling-text">
+                Heading 3
+            </div>
+        </div>
+    </main>
+    <audio controls autoplay loop>
+        <source src="/assets/smg2_greenstar-DVSqVS5A.mp3" type="audio/mp3" />
+    </audio>
+</body>
+</html>
