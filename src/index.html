@@ -90,6 +90,45 @@
             50% {background-position: 100% 50%;}
             100% {background-position: 0% 50%;}
         }
+
+        .comment-board {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-form textarea {
+            resize: none;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+
+        .comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +172,7 @@
             <a href="cat-redirect.html" class="link">checkout this page its very awesom</a>
             <div class="scrolling-text">
                 Heading 1
+
             </div>
         </div>
         <div class="text-box">
@@ -146,11 +186,35 @@
             <div class="scrolling-text">
                 Heading 3
             </div>
+
+            <div class="comment-board">
+                <h2>Thanks for checking out the website thoo</h2>
+                <div id="comments"></div>
+                <form class="comment-form" id="comment-form">
+                    <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+                    <button type="submit">say hi if u want</button>
+                </form>
+            </div>
         </div>
     </main>
     <audio controls autoplay loop>
         <source src="smg2_greenstar.mp3" type="audio/mp3" />
     </audio>
     <script type="module" src="script.js"></script>
+    <!-- comment section -->
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+            if (commentText !== '') {
+                const comment = document.createElement('div');
+                comment.classList.add('comment');
+                comment.textContent = commentText;
+                document.getElementById('comments').appendChild(comment);
+                commentInput.value = '';
+            }
+        });
+    </script>
 </body>
 </html>
