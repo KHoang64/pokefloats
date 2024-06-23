@@ -203,17 +203,44 @@
     <script type="module" src="script.js"></script>
     <!-- comment section -->
     <script>
-        document.getElementById('comment-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const commentInput = document.getElementById('comment-input');
-            const commentText = commentInput.value.trim();
-            if (commentText !== '') {
+        // Function to save comments to localStorage
+        function saveComments(comments) {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Function to load comments from localStorage
+        function loadComments() {
+            const comments = localStorage.getItem('comments');
+            return comments ? JSON.parse(comments) : [];
+        }
+
+        // Function to display comments
+        function displayComments(comments) {
+            const commentsContainer = document.getElementById('comments');
+            commentsContainer.innerHTML = '';
+            comments.forEach(commentText => {
                 const comment = document.createElement('div');
                 comment.classList.add('comment');
                 comment.textContent = commentText;
-                document.getElementById('comments').appendChild(comment);
-                commentInput.value = '';
-            }
+                commentsContainer.appendChild(comment);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let comments = loadComments();
+            displayComments(comments);
+
+            document.getElementById('comment-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const commentInput = document.getElementById('comment-input');
+                const commentText = commentInput.value.trim();
+                if (commentText !== '') {
+                    comments.push(commentText);
+                    saveComments(comments);
+                    displayComments(comments);
+                    commentInput.value = '';
+                }
+            });
         });
     </script>
 </body>
