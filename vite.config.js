@@ -7,7 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'src/index.html',
-         catRedirect: 'src/cat-redirect.html'
+         catRedirect: 'src/cat-redirect.html',
+         musicplayer: 'src/musicplayer.html',
       }
     }
   }
