@@ -252,6 +252,8 @@
             background-color: #1c1c1c;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            /* Add this line */
         }
 
         .post h3 {
@@ -307,6 +309,63 @@
             <h2></h2>
             <p></p>
         </section>
+        <button id="toggle-sidebar" style="position: fixed; top: 20px; left: 200px; z-index: 1000;">&#9664;</button>
+
+        <script>
+            document.getElementById('toggle-sidebar').addEventListener('click', function () {
+                const sidebar = document.querySelector('.sidebar');
+                const button = document.getElementById('toggle-sidebar');
+                if (sidebar.style.display === 'none') {
+                    sidebar.style.display = 'flex';
+                    button.innerHTML = '&#9664;';
+                    button.style.left = '200px';
+                } else {
+                    sidebar.style.display = 'none';
+                    button.innerHTML = '&#9654;';
+                    button.style.left = '0';
+                }
+            });
+        </script>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="blog.html">Blog</a>
+            <a href="artgallery.html">Art gallery</a>
+
+        </div>
+
+        <style>
+            /* Sidebar Navigation */
+            .sidebar {
+                width: 180px;
+                background-color: rgba(56, 56, 56, 0.9);
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+                box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .sidebar a {
+                padding: 15px;
+                text-decoration: none;
+                color: white;
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                transition: 0.3s;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            .sidebar a:hover {
+                background-color: #007BFF;
+            }
+        </style>
+
+
 
         <section class="light">
             <h2> </h2>
@@ -394,63 +453,18 @@
             </div>
         </div>
 
-        <div class="newsletter-section">
-            <h2> Blog sorta</h2>
-            <div class="posts">
-                <div class="post">
-                    <h3>at this point my own website should be renamed to why am i an idiot dot com.com</h3>
-                    <p>Those Who Know, yeah the domain is .us 🦅 🦅 cuz I thought sus == funni
-                        <img src="gettyimages-640968209-612x612.jpg"
-                            alt="Lawd God , I come to you a sinnew and I humbwy wepent fow my zyns 🗿🙏"
-                            title="Lawd God , I come to you a sinnew and I humbwy wepent fow my zyns 🗿🙏"
-                            style=" width: 200px; border-radius: 10px;">
-                        but actually, it turns out that any .US 🦅 domain is put on the WHOIS
-                        <i>fbi most wanted list</i>, so anybody can find my address, phone number, and
-                        <i>prob then cook up to find my IP address or sum shit.😭 😭 😭</i>
-                    </p>
-                    <p>I didn't realize this until I got 10 spam calls in less than an hour the next couple of days
-                        (it's sorta cooled down ig 💀🙏).
-                    </p>
-                    <p>I should probably change it soon since even though I have block unknown contacts, the spam calls
-                        just pile up through the day and remind me every time I see them
-                        (make me feel kinda famous tho with getting 10 calls a week tho💀🙏).
-                    </p>
-                    <p>So in conclusion:</p>
-                    <img src="36j02l.png" alt="In conclusion" style="width:300px;">
-                    <p>To those who somehow are reading this and beforehand were thinking of buying a
-                        <code>.us</code> domain, it's ass dawg ¯\_💀_/¯
-                    </p>
-                </div>
-            </div>
-            <div class="post">
-                <h3>Jan 30: new game assets humble bundle dropped</h3>
-                <p>
-                    <a
-                        href="https://www.humblebundle.com/software/elites-creators-superbundle-4000-assets-software?hmb_source=&hmb_medium=product_tile&hmb_campaign=mosaic_section_1_layout_index_3_layout_type_threes_tile_index_1_c_elitescreatorssuperbundle4000assets_softwarebundle">
-                        Humble Bundle Link
-                    </a>
-                    <br><br>
-                    It's one of those mixed genre stuff that always claim it's saving billions of dollars in assets.
-                    <br><br>
-                    <!-- <img src="raytraced_4k_assets.png" alt="Shi’s at least raytraced and 4K textured but..."
-                        title="Shi’s at least raytraced and 4K textured but..."
-                        style="width: 200px; border-radius: 10px;"> -->
-                    <br>
-                    Ion even started a single Unreal Engine tutorial befo
-                    (but I have been hordin all the monthly free assets for 3 years now 💀 lolllll).
-                    <br>
-                    <img src="unrealenginemillionareeheh.png" style="width: 1000px; border-radius: 10px;">
-                </p>
-                <p>
-                    I might j buy it if I had the funds like that but it's j gonna be added to the shelfz.
-                    But they do look cool doe.
-                </p>
-                <p>
-                    The cathedral one straight out of lothiric from DS3 type type.
-                </p>
-            </div>
 
-        </div>
+        <div id="blog-container"></div>
+
+        <script>
+            fetch('blog.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('blog-container').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading blog:', error));
+        </script>
+
         <script src="https://giscus.app/client.js" data-repo="KHoang64/pokefloats" data-repo-id="R_kgDOML7idA"
             data-category="General" data-category-id="DIC_kwDOML7idM4Cmffy" data-mapping="pathname" data-strict="0"
             data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia"
