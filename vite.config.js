@@ -9,6 +9,8 @@ export default defineConfig({
         main: 'src/index.html',
          catRedirect: 'src/cat-redirect.html',
          musicplayer: 'src/musicplayer.html',
+         TextPost: 'src/blog.html',
+          ImagePost: 'src/artgallery.html',
       }
     }
   }

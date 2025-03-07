@@ -199,10 +199,98 @@
         .comment-form button:hover {
             background-color: #0056b3;
         }
+
+        .newsletter-section {
+            margin: 50px auto;
+            text-align: center;
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter-section h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-section p {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #newsletter-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 250px;
+            margin-right: 10px;
+        }
+
+        #newsletter-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        #newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .posts {
+            margin-top: 30px;
+        }
+
+        .post {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            /* Add this line */
+        }
+
+        .post h3 {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .post p {
+            font-size: 14px;
+            color: #ddd;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .post img {
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .comment-section {
+            max-width: 75vw;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(56, 56, 56, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .comment-section h2 {
+            text-align: center;
+            color: white;
+        }
     </style>
 
-  <script type="module" crossorigin src="/assets/main-I9Ms5eRj.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-DZTKnOFB.css">
+  <script type="module" crossorigin src="/assets/script-DgsTDJGg.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-DZTKnOFB.css">
 </head>
 
 <body>
@@ -215,14 +303,71 @@
         </header>
 
         <blockquote>
-            <p> Pokefloats is a stage that will probably just be a floating collection of anything I find cool or funny
-                probably. <br></p>
+
+            <br></p>
         </blockquote>
 
         <section>
             <h2></h2>
             <p></p>
         </section>
+        <button id="toggle-sidebar" style="position: fixed; top: 20px; left: 200px; z-index: 1000;">&#9664;</button>
+
+        <script>
+            document.getElementById('toggle-sidebar').addEventListener('click', function () {
+                const sidebar = document.querySelector('.sidebar');
+                const button = document.getElementById('toggle-sidebar');
+                if (sidebar.style.display === 'none') {
+                    sidebar.style.display = 'flex';
+                    button.innerHTML = '&#9664;';
+                    button.style.left = '200px';
+                } else {
+                    sidebar.style.display = 'none';
+                    button.innerHTML = '&#9654;';
+                    button.style.left = '0';
+                }
+            });
+        </script>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="blog.html">Blog</a>
+            <a href="artgallery.html">Art gallery</a>
+
+        </div>
+
+        <style>
+            /* Sidebar Navigation */
+            .sidebar {
+                width: 180px;
+                background-color: rgba(56, 56, 56, 0.9);
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+                box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .sidebar a {
+                padding: 15px;
+                text-decoration: none;
+                color: white;
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                transition: 0.3s;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            .sidebar a:hover {
+                background-color: #007BFF;
+            }
+        </style>
+
+
 
         <section class="light">
             <h2> </h2>
@@ -238,10 +383,46 @@
 
         <div class="text-box">
             <h1>Hey Hi</h1>
+            <p> Pokefloats is a stage in smash that will be left in melee forever, not return and is competetively
+                banned from tourneyys D: </p>
+            <p>
+                But this web space thingy place
+                will probably just be a floating point collection for anything I find cool or funny
+                probably.
+            </p>
             <div class="scrolling-text">
-                this is my website is veryy unfinished but I;m thinking about updating it at least monthlyy
+                <iframe class="video" src="https://www.youtube.com/embed/xR1GOytnd0I?si=6KVVCjOq0lPv3EmG"
+                    frameborder="0" allowfullscreen></iframe>
+                <p>this is my website is veryy unfinished</p>
+                <p>I;m thinking about updating it at least monthlyy (2025 edit: maybe actually every other month or at
+                    least each semester when the school is schooling 💀 🙏)</p>
+                <p>inspiration : I got the idea from a threejs 10 minute tutorial video and me reminded of this video I
+                    saw a long time ago</p>
+                <p>if you wait like 10 seconds you will see bob</p>
+
             </div>
         </div>
+
+        <style>
+            .text-box {
+                position: relative;
+            }
+
+            .scrolling-text {
+                overflow: auto;
+            }
+
+            .scrolling-text .video {
+                float: right;
+                width: 300px;
+                height: 200px;
+                margin-left: 20px;
+            }
+
+            .scrolling-text p {
+                margin: 0 0 10px;
+            }
+        </style>
         <div id="loading-bar"></div>
         <div class="">
             <h1>Stuff that I have made </h1>
@@ -254,6 +435,13 @@
                         </a>
                         <div class="game-caption">I made this a while agooo thoo</div>
                     </div>
+                    <div class="game-item">
+                        <div class="game-caption">3D Platformer thing for CS438 </div>
+                        <a href="https://khoabl4.itch.io/a-cool-3d-plat-for-me" target="_blank">
+                            <img src="/assets/3dplatformer-BjKrePjA.png" alt="A Cool 3D Platformer">
+                        </a>
+                        <div class="game-caption">Project 1 for UA's Xiao's 3d game programming class </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -261,17 +449,32 @@
         <div class="text-box">
             <h1>More on the wayyy</h1>
             <div class="scrolling-text">
-                <a href="cat-redirect.html" class="link">checkout this page its very awesom</a>
+                <a href="cat-redirect.html" class="link">car jumpscare </a>
+                (not scary it actually just this gif
+                https://user-uploads.perchance.org/file/da1bf91d3531f0c92e59e6db38e44176.webm :) )
             </div>
         </div>
-        <!-- <div class="text-box">
-            <h1></h1>
-            <div class="scrolling-text">
-                Heading 3
-            </div>
-        </div> -->
 
-        <iframe src="musicplayer.html" style="border:none; 
+
+        <div id="blog-container"></div>
+
+        <script>
+            fetch('blog.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('blog-container').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading blog:', error));
+        </script>
+
+        <script src="https://giscus.app/client.js" data-repo="KHoang64/pokefloats" data-repo-id="R_kgDOML7idA"
+            data-category="General" data-category-id="DIC_kwDOML7idM4Cmffy" data-mapping="pathname" data-strict="0"
+            data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia"
+            data-lang="en" crossorigin="anonymous" async>
+            </script>
+
+
+        <!-- <iframe src="musicplayer.html" style="border:none; 
                position: fixed; 
                bottom: 10px; 
                right: 10px; 
@@ -279,13 +482,13 @@
                height: 180px; 
                z-index: 1000;
                overflow: hidden;"></iframe>
-
+ -->
 
 
         </div>
     </main>
     <audio controls loop>
-        <source src="/assets/smg2_greenstar-DVSqVS5A.mp3" type="audio/mp3" />
+        <source src="/assets/3-4It7edUb.mp3" type="audio/mp3" />
     </audio>
     <!-- comment section nevermind this part doesnt work without having to do some backend -->
     <script>
