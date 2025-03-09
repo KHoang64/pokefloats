@@ -11,6 +11,7 @@ export default defineConfig({
          musicplayer: 'src/musicplayer.html',
          TextPost: 'src/blog.html',
           ImagePost: 'src/artgallery.html',
+          GameDevPost: 'src/GameDevStuff.html',
       }
     }
   }
