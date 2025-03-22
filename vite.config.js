@@ -12,6 +12,8 @@ export default defineConfig({
          TextPost: 'src/blog.html',
           ImagePost: 'src/artgallery.html',
           GameDevPost: 'src/GameDevStuff.html',
+          Resources: 'src/otherAssets.html',
+          ethereal: 'src/ethereal.html',
       }
     }
   }
