@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokéfloats</title>
+    <style>
+        .game-gallery {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .game-item {
+            text-align: center;
+            margin: 2px;
+            width: 200px;
+            /* Adjust the width */
+        }
+
+        .game-item img {
+            width: 450px;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+        }
+
+
+        .game-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .game-caption {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+
+        .hover-text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+        }
+
+        .game-item:hover .hover-text {
+            opacity: 1;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+            overflow-y: auto;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #bg,
+        #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-box {
+            background-color: rgba(56, 56, 56, 0.459);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 75vw;
+            margin: 20px auto;
+            height: 35vh;
+            overflow: hidden;
+        }
+
+        .text-box:hover {
+            overflow: auto;
+        }
+
+        .scrolling-text {
+            font-size: 16px;
+            color: black;
+            text-align: left;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .link {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        #loading-bar {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 20s linear infinite;
+            margin-top: 20px;
+        }
+
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .comment-board {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-form textarea {
+            resize: none;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+
+        .comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .newsletter-section {
+            margin: 50px auto;
+            text-align: center;
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter-section h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-section p {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #newsletter-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 250px;
+            margin-right: 10px;
+        }
+
+        #newsletter-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        #newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .posts {
+            margin-top: 30px;
+        }
+
+        .post {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            /* Add this line */
+        }
+
+        .post h3 {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .post p {
+            font-size: 14px;
+            color: #ddd;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .post img {
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .comment-section {
+            max-width: 75vw;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(56, 56, 56, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .comment-section h2 {
+            text-align: center;
+            color: white;
+        }
+    </style>
+
+  <script type="module" crossorigin src="/assets/OrbitControls-DTIdDn8-.js"></script>
+  <script type="module" crossorigin src="/assets/script-DrT-A5pG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-DZTKnOFB.css">
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+    <div id="container"></div>
+    <main>
+        <header>
+            <h1>Pokefloats</h1>
+            <p></p>
+        </header>
+
+        <blockquote>
+
+            <br></p>
+        </blockquote>
+
+        <section>
+            <h2></h2>
+            <p></p>
+        </section>
+        <button id="toggle-sidebar" style="position: fixed; top: 20px; left: 200px; z-index: 1000;">&#9664;</button>
+
+        <script>
+            document.getElementById('toggle-sidebar').addEventListener('click', function () {
+                const sidebar = document.querySelector('.sidebar');
+                const button = document.getElementById('toggle-sidebar');
+                if (sidebar.style.display === 'none') {
+                    sidebar.style.display = 'flex';
+                    button.innerHTML = '&#9664;';
+                    button.style.left = '200px';
+                } else {
+                    sidebar.style.display = 'none';
+                    button.innerHTML = '&#9654;';
+                    button.style.left = '0';
+                }
+            });
+        </script>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="artgallery.html">Art gallery</a>
+            <a href="GameDevStuff.html">GameDev Things</a>
+            <a href="otherAssets.html">ball knowlegde</a>
+            <a href="ethereal.html">holyypeakthreeJs</a>
+
+
+        </div>
+
+        <style>
+            /* Sidebar Navigation */
+            .sidebar {
+                width: 180px;
+                background-color: rgba(56, 56, 56, 0.9);
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+                box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .sidebar a {
+                padding: 15px;
+                text-decoration: none;
+                color: white;
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                transition: 0.3s;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            .sidebar a:hover {
+                background-color: #007BFF;
+            }
+        </style>
+
+
+
+        <section class="light">
+            <h2> </h2>
+
+            </p>
+        </section>
+
+        <section class="left">
+        </section>
+
+        <div class="text-box">
+
+            <h4>
+                <a href="https://github.com/Hongda-OSU/CSE5912-Capstone-Karma"> ☆ ⋆｡° ☆ ⋆｡°</a>
+            </h4>
+        </div>
+
+
+        <style>
+            .text-box {
+                position: relative;
+            }
+
+            .scrolling-text {
+                overflow: auto;
+            }
+
+            .scrolling-text .video {
+                float: right;
+                width: 300px;
+                height: 200px;
+                margin-left: 20px;
+            }
+
+            .scrolling-text p {
+                margin: 0 0 10px;
+            }
+        </style>
+
+        <div class="text-box">
+            <h3>I do have more other ball knowledge of assets but its gonna take a lot of work to post it here so thats
+                for
+                laterr</h3>
+            <div class="scrolling-text">
+                but if ya need anything j hmu i might have it
+                <p>cause even i forget sometimes i have random peak shit for no reason lol</p>
+            </div>
+        </div>
+
+
+
+
+        <script src="https://giscus.app/client.js" data-repo="KHoang64/pokefloats" data-repo-id="R_kgDOML7idA"
+            data-category="General" data-category-id="DIC_kwDOML7idM4Cmffy" data-mapping="pathname" data-strict="0"
+            data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia"
+            data-lang="en" crossorigin="anonymous" async>
+            </script>
+
+
+        <!-- <iframe src="musicplayer.html" style="border:none; 
+               position: fixed; 
+               bottom: 10px; 
+               right: 10px; 
+               width: 320px; 
+               height: 180px; 
+               z-index: 1000;
+               overflow: hidden;"></iframe>
+ -->
+
+
+        </div>
+    </main>
+    <audio controls loop>
+        <source src="/assets/3-4It7edUb.mp3" type="audio/mp3" />
+    </audio>
+    <!-- comment section nevermind this part doesnt work without having to do some backend -->
+    <script>
+        // Function to save comments to localStorage
+        function saveComments(comments) {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Function to load comments from localStorage
+        function loadComments() {
+            const comments = localStorage.getItem('comments');
+            return comments ? JSON.parse(comments) : [];
+        }
+
+        // Function to display comments
+        function displayComments(comments) {
+            const commentsContainer = document.getElementById('comments');
+            commentsContainer.innerHTML = '';
+            comments.forEach(commentText => {
+                const comment = document.createElement('div');
+                comment.classList.add('comment');
+                comment.textContent = commentText;
+                commentsContainer.appendChild(comment);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let comments = loadComments();
+            displayComments(comments);
+
+            document.getElementById('comment-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const commentInput = document.getElementById('comment-input');
+                const commentText = commentInput.value.trim();
+                if (commentText !== '') {
+                    comments.push(commentText);
+                    saveComments(comments);
+                    displayComments(comments);
+                    commentInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

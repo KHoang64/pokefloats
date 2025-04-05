@@ -140,6 +140,43 @@
     <canvas class="webgl"></canvas>
 
     <script type="module" src="./galaxyscript.js"></script>
+
+    <!-- Notion Embed - Wide Bottom Panel Above Music -->
+    <iframe src="https://bolder-astronaut-582.notion.site/ebd/1c0479bc89768034a793ebaa2c3b2be2" width="1200"
+        height="350" frameborder="0" allowfullscreen style="
+    position: fixed;
+    bottom: 70px;           /* above music player */
+    right: 20px;
+    z-index: 999;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    opacity: 0.8;
+    pointer-events: auto;
+">
+    </iframe>
+
+
+    <!-- Music Player - Bottom Center -->
+    <audio id="bg-music" controls loop style="
+position: fixed;
+bottom: 10px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 1000;
+background-color: rgba(0,0,0,0.7);
+border-radius: 8px;
+">
+        <source src="music/AlotOnMyMind.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Set volume to 70%
+        const audio = document.getElementById('bg-music');
+        audio.volume = 0.5;
+    </script>
+
 </body>
 
 </html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Generator</title>
+    <style>
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 180px;
+            background-color: rgba(56, 56, 56, 0.9);
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007BFF;
+        }
+
+        /* Adjust canvas to not overlap sidebar */
+        .main-content {
+            margin-left: 200px;
+            /* Prevent overlap with sidebar */
+            position: relative;
+        }
+
+        /* Text Panel - Align Left Without Overlapping Sidebar */
+        .text-panel {
+            position: absolute;
+            top: 20px;
+            left: 190px;
+            /* Just right of the sidebar */
+            width: 220px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 30;
+            overflow: hidden;
+        }
+
+        /* Scrollable Textboxes */
+        .textbox {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+            max-height: 80px;
+            overflow-y: auto;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .textbox h3 {
+            margin: 0 0 3px;
+            font-size: 14px;
+            border-bottom: 1px solid white;
+            padding-bottom: 3px;
+            text-align: center;
+        }
+
+        /* Ensure Three.js Canvas Stays Behind */
+        canvas.webgl {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/ethereal-bVpbLVAq.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/OrbitControls-DTIdDn8-.js">
+  <link rel="stylesheet" crossorigin href="/assets/ethereal-DyxU-i5V.css">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="artgallery.html">Art Gallery</a>
+        <a href="GameDevStuff.html">GameDev Things</a>
+        <a href="otherAssets.html">unListed Ball Knowledge</a>
+        <a href="ethereal.html">HolyypeakThreeJs1DayIllcodeIt</a>
+    </div>
+
+    <!-- Text Panel Positioned Next to Sidebar -->
+    <div class="text-panel">
+        <div class="textbox">
+            <h3>Galaxy Generator </h3>
+            <p>from https://threejs-journey.com/lessons/galaxy-generator#base-particles
+
+            </p>
+        </div>
+        <div class="textbox">
+            <h3></h3>
+            <p>
+                this class about to be peak when i get the free time next season to lock in and actually learn matrix
+                and
+                linear algebra for the first time
+                and revisit math for computer graphics ✨
+                and learn rendering engines✨
+            </p>
+        </div>
+        <div class="textbox">
+            <h4>For now I j at least got sthg i might use for the mind altering inhibitors trip sesh or sthg </h4>
+            <p>
+                (or might not cause the colors here are dark and prob might be horrible trip idk i havent been on a trip
+                yet 💀)
+            </p>
+            <p>
+                also jk this code was just for my own fun and motivation to learn lo
+            </p>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas class="webgl"></canvas>
+
+</body>
+
+</html>
